@@ -1,12 +1,13 @@
 import { useRef } from "react";
 
 export default function Login() {
-    const backendUrl = 'http://poontoit-react.local/wp-admin/personal-admin-ajax.php';
+    const localBackendUrl = 'http://poontoit-react.local/wp-admin/personal-admin-ajax.php';
+    const onlineBackendUrl = 'https://phpstack-1158621-4450522.cloudwaysapps.com/backend/requests_controller.php';
     var username = useRef();
 
     function handler() {
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', backendUrl, true);
+        xhr.open('POST', localBackendUrl, true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         xhr.onload = function() {
             if (xhr.status === 200 && xhr.readyState === 4)
