@@ -1,0 +1,67 @@
+@import 'Fonts/Averta/font-import.css';
+
+#LoginPageWrapper {
+    width: 100vw;
+    height: 100vh;
+    background: var(--Poonto-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#LoginWrapper {
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+}
+
+#LoginWrapper p {
+    font-family: Averta;
+    font-size: 35px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: var(--Poonto-color);
+}
+
+#LoginWrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#LoginWrapper input {
+    padding: 8px 16px;
+    font-family: Averta;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--Poonto-color);
+    outline: none;
+}
+
+#LoginWrapper input::placeholder {
+    color: black;
+    opacity: 1;
+}
+
+
+#LoginWrapper button {
+    align-self: center;
+    padding: 7px 60px;
+    font-family: Averta;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--Poonto-color);
+    background: none;
+    border: 1px solid var(--Poonto-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+

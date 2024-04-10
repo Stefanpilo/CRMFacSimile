@@ -1,17 +1,18 @@
 <?php
-	function insertFakeAdmin() {
-		$pdo = connectionToDB();
-		$query = $pdo->prepare('INSERT INTO studenti (nome, cognome, esame, voto) VALUES (?, ?, ?, ?)');
-		$query->execute([$nome, $cognome, $esame, $voto]);
+	function insertFakeAdmin($DBType = 'online') {
+		$pdo = connectionToDB($DBType);
+		$query = $pdo->prepare('INSERT INTO users (username, password) VALUES (?, ?)');
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$encryptedPassword = password_hash($password, PASSWORD_BCRYPT);
+		$query->execute([$username, $encryptedPassword]);
 		
 		if ($query->rowCount() > 0)
-			echo 'Inserimento con successo';
-		
-		die();
+			return 'Inserimento con successo';
 	}
 
-    function selectAllTest() {
-        $pdo = connectionToDB('online');
+    function selectAllTest($DBType = 'online') {
+        $pdo = connectionToDB($DBType);
         $query = $pdo->prepare('SELECT * FROM users');
         $query->execute();
 

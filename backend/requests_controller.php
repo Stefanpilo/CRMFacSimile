@@ -8,10 +8,20 @@
 
 	$request_method = $_SERVER['REQUEST_METHOD'];
 
-	if ($request_method === 'POST' && $_POST['inser'] === 'fakeAdmin') {
-		$results = selectAllTest();
-		foreach ($results as $row) {
-			echo 'username: ' . $row['username'] . ', password: ' . $row['password'];
+	if ($request_method === 'POST' && isset($_POST['insertUser']) && $_POST['insertUser'] === 'fakeAdmin') {
+		$results = insertFakeAdmin($_POST['connType']);
+		echo $results;
+		die();
+	}
+
+	if ($request_method === 'POST' && isset($_POST['reqType']) && $_POST['reqType'] === 'get') {
+		$results = selectAllTest($_POST['connType']);
+		foreach($results as $row) {
+			if (password_verify($_POST['password'], $row['password']))
+				echo 'giusta';
+			else
+				echo 'sbagliata';
 		}
+		die();
 	}
 ?>
